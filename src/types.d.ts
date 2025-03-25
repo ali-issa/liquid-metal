@@ -2,7 +2,10 @@
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      liquidShaderMaterial: any; // Adjust type if possible
+      liquidShaderMaterial: JSX.IntrinsicElements["meshStandardMaterial"] & {
+        key?: string;
+        ref?: React.RefObject<THREE.ShaderMaterial>;
+      };
     }
   }
 }
